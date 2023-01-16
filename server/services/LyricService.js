@@ -1,10 +1,12 @@
 const LyricModel = require("../models/lyrics");
+const { check, validationResult } = require("express-validator");
 
 exports.getAllLyrics = async () => {
   return await LyricModel.find();
 };
 
 exports.createLyrics = async (lyrics) => {
+  console.log(lyrics);
   return await LyricModel.create(lyrics);
 };
 exports.getLyricsById = async (id) => {
