@@ -22,7 +22,7 @@ exports.createLyrics = [
     .isEmpty()
     .withMessage("Genre is required")
     .isIn(["pop", "rock", "punk"])
-    .withMessage("Genre must be pop, rock or Punks"),
+    .withMessage("Genre must be pop, rock or punk"),
   check("artist").not().isEmpty().withMessage("Artist is required"),
   check("body")
     .not()

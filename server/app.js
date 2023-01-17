@@ -2,6 +2,7 @@ const express = require("express");
 const { default: mongoose } = require("mongoose");
 const LyricRouter = require("./routes/route");
 const bodyParser = require("body-parser");
+const pdfRoute = require("./pdf/pdf");
 
 const app = express();
 const port = 3000;
@@ -10,6 +11,7 @@ const port = 3000;
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/lyrics", LyricRouter);
+app.use("/upload", pdfRoute);
 
 //mongodb configuration
 const uri =
