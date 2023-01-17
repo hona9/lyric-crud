@@ -48,17 +48,17 @@ router.post("/", upload.single("file"), (req, res) => {
   });
 });
 
-// router.get("/upload/:id", (req, res) => {
-//   Pdf.findOne({ _id: req.params.id }, (err, pdf) => {
-//     if (err) {
-//       return res.status(500).send(err);
-//     }
-//     if (!pdf) {
-//       return res.status(404).send("No pdf found.");
-//     }
-//     res.contentType("application/pdf");
-//     res.send(pdf.pdf);
-//   });
-// });
+router.get("/:id", (req, res) => {
+  Pdf.findOne({ _id: req.params.id }, (err, pdf) => {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    if (!pdf) {
+      return res.status(404).send("No pdf found.");
+    }
+    res.contentType("application/pdf");
+    res.send(pdf.pdf);
+  });
+});
 
 module.exports = router;
